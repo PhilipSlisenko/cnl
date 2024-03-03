@@ -10,9 +10,12 @@ import uuid
 from cnl_engine.types.common_types import ChatMessage
 
 
-def main(history, store, meta) -> ChatMessage:
+def main(history: List[ChatMessage], meta: dict, cnl_store: dict) -> ChatMessage:
+    current_counter = cnl_store.get("counter", 1)
+    cnl_store.update({"counter": current_counter + 1})
     return {
-        "content": "messge from engine",
+        "content": f'You just said: "{history[-1]["content"]}"\n'
+                   f"And this is my {current_counter} message",
         "dataset_samples": [
             {
                 "dataset_id": "",
