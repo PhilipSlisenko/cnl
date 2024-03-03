@@ -59,3 +59,7 @@ config = {
 ```
 
 2. Run `cnl_run cnl_app.py cnl_config.py`
+
+# Fine-tuning
+
+https://platform.openai.com/docs/guides/fine-tuning/preparing-your-dataset
