@@ -8,6 +8,7 @@
 import uuid
 
 from cnl_engine.types.common_types import ChatMessage
+from typing_extensions import List
 
 
 def main(history: List[ChatMessage], meta: dict, cnl_store: dict) -> ChatMessage:
