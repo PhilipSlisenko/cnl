@@ -24,8 +24,8 @@ router = APIRouter()
 
 @router.post("/log_conversation", tags=["logged_conversations"])
 def log_conversation(conversation: LoggedConversation):
-    print(f"Going to write to db:")
-    pprint(conversation)
+    # print(f"Going to write to db:")
+    # pprint(conversation)
     update_or_create_logged_conversation(conversation)
 
 
@@ -34,8 +34,8 @@ def get_logged_conversation(conversation_id: str) -> Optional[LoggedConversation
     logged_conversation = get_logged_conversation_(conversation_id)
     if not logged_conversation:
         raise HTTPException(status_code=404)
-    print(f"Returning logged conversation:")
-    pprint(logged_conversation)
+    # print(f"Returning logged conversation:")
+    # pprint(logged_conversation)
     return logged_conversation
 
 

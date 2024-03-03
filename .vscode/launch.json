@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug CNL Script",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/cnl/cnl_cli/main.py",
+      "args": ["user_function.py", "cnl_config.py"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Python Debugger: Python File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}"
+    }
+  ]
+}

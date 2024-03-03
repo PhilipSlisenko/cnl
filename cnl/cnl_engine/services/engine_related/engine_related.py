@@ -70,7 +70,12 @@ class Engine:
         "what will be run in thread"
         with Pool(processes=1) as pool:
             result_async = pool.apply_async(
-                user_function_process_wrapper, (self.path_to_user_function_file,)
+                user_function_process_wrapper,
+                args=(
+                    self.path_to_user_function_file,
+                    self.conversation_id,
+                    self.conversation_id,
+                ),
             )
             result: ChatMessage = result_async.get()
         # send_message_if_appropriate(self.conversation_id, self.engine_id, result)
@@ -84,8 +89,8 @@ class Engine:
             "last_activity": zulu_time_now_str(),
             "conversation_history": history,
         }
-        print(f"Going to log:")
-        pprint(new_logged_conversation)
+        # print(f"Going to log:")
+        # pprint(new_logged_conversation)
         httpx.post(
             f'http://{config["conversation_logging_host"]}:{config["conversation_logging_port"]}/log_conversation',
             json=new_logged_conversation,

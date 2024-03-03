@@ -1,6 +1,8 @@
 from cnl_engine.db.engine_session import engine
 from cnl_engine.db.models._base import Base  # Import base
+from cnl_engine.db.models.cnl_store import CnlStore
 from cnl_engine.db.models.conversation_history import ConversationHistory
+from cnl_engine.db.models.conversation_meta import ConversationMeta
 from cnl_engine.db.models.new_events_engine_management import NewEventsEngineManagement
 
 

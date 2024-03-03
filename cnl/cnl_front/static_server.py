@@ -7,13 +7,18 @@ from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
-STATIC_FILES_DIR = resources.files("cnl_front").joinpath("static")
-# STATIC_FILES_DIR = (
-#     "/Users/philip/Documents/projects/cnl/front-new/build/_temp/src_for_prod_build/out"
-# )
+# STATIC_FILES_DIR = resources.files("cnl_front").joinpath("static")
+STATIC_FILES_DIR = (
+    "/Users/philip/Documents/projects/cnl/cnl_reconciled/cnl/cnl_front/static"
+)
 
 
-@app.get("/{slug}")
+@app.get("/")
+async def serve_index():
+    return FileResponse(f"{STATIC_FILES_DIR}/index.html")
+
+
+@app.get("/{slug:path}")
 async def main_web(slug: str):
     # serve static file
     if "." in slug.split("/")[-1]:

@@ -1,12 +1,11 @@
 import uvicorn
-from fastapi import FastAPI
-
 from cnl_engine.api.app import app
 from cnl_engine.config import config
+from fastapi import FastAPI
 
 
 def main(host: str = config["host"], port: int = config["port"]):
-    uvicorn.run(app, host=host, port=port)
+    uvicorn.run(app, host=host, port=port, log_level="critical")
 
 
 if __name__ == "__main__":

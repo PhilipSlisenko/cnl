@@ -1,0 +1,10 @@
+python setup.py sdist bdist_wheel
+
+twine upload --repository testpypi dist/*
+twine upload --repository pypi dist/*
+
+pip install -i https://test.pypi.org/simple/ cnl
+
+
+conda create -n cnl-test python=3.10 -y
+conda remove --name cnl-test --all -y

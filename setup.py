@@ -4,7 +4,7 @@ print(find_packages(where="cnl"))
 
 setup(
     name="cnl",
-    version="0.1.13",
+    version="0.1.15",
     packages=[
         "cnl",
         "cnl_cli",
@@ -18,11 +18,7 @@ setup(
     # description="A brief description of your package",
     # long_description="A longer description of your package",
     url="",
-    install_requires=[
-        "fastapi",
-        "uvicorn",
-        "typer[all]",
-    ],
+    install_requires=["fastapi", "uvicorn", "typer[all]", "SQLAlchemy", "httpx"],
     entry_points={
         "console_scripts": [
             "cnl_run=cnl_cli.main:main",

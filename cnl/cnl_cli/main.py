@@ -1,13 +1,15 @@
 import typer
-
-from cnl import cnl_run
+from cnl.cnl_run import cnl_run
+from typing_extensions import Annotated, Optional
 
 app = typer.Typer()
 
 
 # @app.command("run")
-def cnl_run_command(module_path: str):
-    cnl_run(module_path)
+def cnl_run_command(
+    module_path: str, config_path: Annotated[Optional[str], typer.Argument()] = None
+):
+    cnl_run(module_path, config_path)
 
 
 def main():

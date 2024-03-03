@@ -1,12 +1,11 @@
 import json
 
-from typing_extensions import List, Optional, cast
-
 from cnl_local.db.engine_session import SessionLocal
 from cnl_local.db.models.dataset import Dataset as DatasetModel
 from cnl_local.db.models.sample import Sample as SampleModel
 from cnl_local.types.datasets_samples.Dataset import Dataset
 from cnl_local.types.datasets_samples.DatasetSample import DatasetSample
+from typing_extensions import List, Optional, cast
 
 
 ##

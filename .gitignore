@@ -164,3 +164,5 @@ cython_debug/
 _all_apps.py
 .cnl/cnl-local.db
 .cnl/engine-meta.db
+cnl_config.py
+user_function.py

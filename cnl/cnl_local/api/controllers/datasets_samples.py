@@ -1,8 +1,5 @@
 import json
 
-from fastapi import APIRouter, HTTPException, Response
-from typing_extensions import List, Optional
-
 from cnl_local.db.repositories.datasets_samples import get_dataset as get_dataset_
 from cnl_local.db.repositories.datasets_samples import get_datasets as get_datasets_
 from cnl_local.db.repositories.datasets_samples import get_sample as get_sample_
@@ -16,6 +13,8 @@ from cnl_local.db.repositories.datasets_samples import (
 )
 from cnl_local.types.datasets_samples.Dataset import Dataset
 from cnl_local.types.datasets_samples.DatasetSample import DatasetSample
+from fastapi import APIRouter, HTTPException, Response
+from typing_extensions import List, Optional
 
 router = APIRouter()
 
@@ -44,13 +43,15 @@ def update_or_create_dataset(dataset: Dataset):
 
 @router.get("/download_dataset", tags=["datasets_samples"])
 def download_dataset(dataset_id: str):
-    data = get_samples_full(dataset_id)
-    pretty_json_data = json.dumps(data, indent=4)
+    samples = get_samples_full(dataset_id)
+    response_content = "\n".join(
+        [json.dumps({"messages": sample["messages"]}) for sample in samples]
+    )
     headers = {
-        "Content-Disposition": f"attachment; filename=cnl-dataset.json",
+        "Content-Disposition": f"attachment; filename=cnl-dataset.jsonl",
         "Content-Type": "application/json",
     }
-    return Response(content=pretty_json_data, headers=headers)
+    return Response(content=response_content, headers=headers)
 
 
 ##
