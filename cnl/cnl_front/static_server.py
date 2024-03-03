@@ -7,10 +7,10 @@ from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
-# STATIC_FILES_DIR = resources.files("cnl_front").joinpath("static")
-STATIC_FILES_DIR = (
-    "/Users/philip/Documents/projects/cnl/cnl_reconciled/cnl/cnl_front/static"
-)
+STATIC_FILES_DIR = resources.files("cnl_front").joinpath("static")
+# STATIC_FILES_DIR = (
+#     "/Users/philip/Documents/projects/cnl/cnl_reconciled/cnl/cnl_front/static"
+# )
 
 
 @app.get("/")

@@ -4,10 +4,11 @@ print(find_packages(where="cnl"))
 
 setup(
     name="cnl",
-    version="0.1.15",
+    version="0.1.19",
     packages=[
         "cnl",
         "cnl_cli",
+        "cnl_deployment_targets",
         "cnl_engine",
         "cnl_front",
         "cnl_local",
