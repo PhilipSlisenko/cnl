@@ -4,7 +4,7 @@ print(find_packages(where="cnl"))
 
 setup(
     name="cnl",
-    version="0.1.19",
+    version="0.1.21",
     packages=[
         "cnl",
         "cnl_cli",
@@ -15,7 +15,7 @@ setup(
         *find_packages(where="cnl"),
     ],
     package_dir={"": "cnl"},
-    package_data={"cnl_front": ["static/*"]},
+    package_data={"cnl_front": ["static/**/*"]},
     # description="A brief description of your package",
     # long_description="A longer description of your package",
     url="",

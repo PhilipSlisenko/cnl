@@ -26,4 +26,4 @@ def main(path_to_module: str):
     process.start()
 
     while True:
-        sleep(1)
+        sleep(0.05)
